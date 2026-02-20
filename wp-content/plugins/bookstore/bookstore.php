@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
+// Register a custom post type for books
+
 add_action( 'init', 'bookstore_register_book_post_type' );
 function bookstore_register_book_post_type() {
     $args = array(
@@ -30,4 +32,25 @@ function bookstore_register_book_post_type() {
     );
 
     register_post_type( 'book', $args );
+}
+
+// Register a custom taxonomy for book genres
+add_action( 'init', 'bookstore_register_genre_taxonomy' );
+function bookstore_register_genre_taxonomy() {
+    $args = array(
+        'labels'       => array(
+            'name'          => 'Genres',
+            'singular_name' => 'Genre',
+            'edit_item'     => 'Edit Genre',
+            'update_item'   => 'Update Genre',
+            'add_new_item'  => 'Add New Genre',
+            'new_item_name' => 'New Genre Name',
+            'menu_name'     => 'Genre',
+        ),
+        'hierarchical' => true,
+        'rewrite'      => array( 'slug' => 'genre' ),
+        'show_in_rest'           => true,
+    );
+
+    register_taxonomy( 'genre', 'book', $args );
 }
