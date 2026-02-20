@@ -28,7 +28,7 @@ function bookstore_register_book_post_type() {
         'public' => true,
         'has_archive' => true,
         'show_in_rest' => true,
-        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields' ),
     );
 
     register_post_type( 'book', $args );
@@ -53,4 +53,13 @@ function bookstore_register_genre_taxonomy() {
     );
 
     register_taxonomy( 'genre', 'book', $args );
+}
+
+// Add custom meta box for book details
+add_filter( 'postmeta_form_keys', 'bookstore_add_isbn_to_quick_edit', 10, 2 );
+function bookstore_add_isbn_to_quick_edit( $keys, $post ) {
+    if ( $post->post_type === 'book' ) {
+        $keys[] = 'isbn';
+    }
+    return $keys;
 }
