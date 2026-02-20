@@ -63,3 +63,24 @@ function bookstore_add_isbn_to_quick_edit( $keys, $post ) {
     }
     return $keys;
 }
+
+// Enqueue scripts and styles for the plugin
+add_action( 'wp_enqueue_scripts', 'bookstore_enqueue_scripts' );
+function bookstore_enqueue_scripts() {
+    wp_enqueue_style(
+        'bookstore-style',
+        plugins_url() . '/bookstore/bookstore.css'
+    );
+    wp_enqueue_script(
+        'bookstore-script',
+        plugins_url() . '/bookstore/bookstore.js'
+    );
+}
+
+add_action( 'admin_enqueue_scripts', 'bookstore_admin_enqueue_scripts' );
+function bookstore_admin_enqueue_scripts() {
+    wp_enqueue_script(
+        'bookstore-admin-script',
+        plugins_url() . '/bookstore/bookstore-admin.js'
+    );
+}
