@@ -17,6 +17,9 @@
 # /wp-*.php
 # /xmlrpc.php
 
+# Dependency directories
+/wp-content/plugins/copyright-date-block/node_modules/
+
 # Configuration
 # wp-config.php
 
