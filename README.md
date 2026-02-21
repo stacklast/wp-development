@@ -15,3 +15,5 @@ Looks like an issue with @wordpress/create-block@latest
 ```cd copyright-date-block```
 
 ```npm install --legacy-peer-deps --no-save``` only if needed
+
+After do any changes we need to do ```npm run build```
