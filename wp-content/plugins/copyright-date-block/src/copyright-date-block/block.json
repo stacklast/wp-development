@@ -8,6 +8,12 @@
 	"icon": "calendar",
 	"description": "A Copyright Date to a post or page.",
 	"example": {},
+	"attributes": {
+		"startingYear": {
+			"type": "string",
+			"default": "2000"
+		}
+	},
 	"supports": {
 		"html": false
 	},

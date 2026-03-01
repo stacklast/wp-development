@@ -13,6 +13,12 @@ return array(
 		'example' => array(
 			
 		),
+		'attributes' => array(
+			'startingYear' => array(
+				'type' => 'string',
+				'default' => '2000'
+			)
+		),
 		'supports' => array(
 			'html' => false
 		),
