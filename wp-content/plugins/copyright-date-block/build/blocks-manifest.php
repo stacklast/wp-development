@@ -20,11 +20,11 @@ return array(
 			)
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'align' => true
 		),
 		'textdomain' => 'copyright-date-block',
 		'editorScript' => 'file:./index.js',
-		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css'
 	)
 );
